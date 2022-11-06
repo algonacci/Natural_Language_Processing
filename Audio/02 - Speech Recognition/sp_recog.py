@@ -14,8 +14,8 @@ def speech_to_text():
             print(q)
             return q
         except sr.UnknownValueError:
-            print("=== Ada pertanyaan lagi? ===")
-            return "(DARI SISTEM) Saya menunggu"
+            print("=== Belum ada suara lagi ===")
+            return "(DARI SISTEM) Menunggu suara masuk."
         except sr.RequestError:
             print("=== Maaf ada Request Error ===")
             return "(DARI SISTEM) Ada Error!"
@@ -35,7 +35,7 @@ def continuation():
             win.mainloop()
             continue
 
-        elif "udahan" in q:
+        elif q == "udahan":
             break
 
 if __name__ == "__main__":

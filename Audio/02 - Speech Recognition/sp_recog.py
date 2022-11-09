@@ -22,21 +22,25 @@ def speech_to_text():
 
 def continuation():
     start = True
-    while start:
-        q = speech_to_text()
-        if q:
-            win = tk.Tk()
-            win.title("Speech Recognition")
-            tk.Label(win,
-                    text=q,
-                    font=("Times New Roman", 20),
-                    background="white").grid(column=0, row=0)
-            win.after(3000, lambda: win.destroy())
-            win.mainloop()
-            continue
+    try:
+        while start:
+            q = speech_to_text()
+            if q:
+                win = tk.Tk()
+                win.title("Speech Recognition")
+                tk.Label(win,
+                        text=q,
+                        font=("Times New Roman", 20),
+                        background="white").grid(column=0, row=0)
+                win.after(3000, lambda: win.destroy())
+                win.mainloop()
+                continue
 
-        elif q == "udahan":
-            break
+            elif q == "udahan":
+                break
+    except KeyboardInterrupt:
+        print("Dadah, sampai jumpa lagi!")
+        pass
 
 if __name__ == "__main__":
     continuation()
